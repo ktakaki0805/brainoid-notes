@@ -1,0 +1,35 @@
+{
+  "name": "@brainoid/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "astryx": "astryx",
+    "theme:build": "astryx theme build src/themes/brainoid/brainoidTheme.ts",
+    "theme:check": "astryx theme build src/themes/brainoid/brainoidTheme.ts --check"
+  },
+  "dependencies": {
+    "@astryxdesign/core": "0.7.14",
+    "@astryxdesign/theme-neutral": "0.7.14",
+    "@brainoid/core": "workspace:*",
+    "@brainoid/editor": "workspace:*",
+    "@hocuspocus/provider": "^4.8.0",
+    "@lexical/react": "0.53.0",
+    "@stylexjs/stylex": "^0.19.2",
+    "lexical": "0.53.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "yjs": "^13.6.33"
+  },
+  "devDependencies": {
+    "@astryxdesign/cli": "0.7.14",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "vite": "^8.3.8"
+  }
+}

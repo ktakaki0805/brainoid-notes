@@ -1,0 +1,21 @@
+# 開発用のPostgres。日本語の全文検索に使うPGroonga入りのイメージを最初から使う。
+# タグの形式は https://github.com/pgroonga/docker を参照。
+services:
+  db:
+    image: groonga/pgroonga:latest-alpine-17
+    environment:
+      POSTGRES_USER: brainoid
+      POSTGRES_PASSWORD: brainoid
+      POSTGRES_DB: brainoid
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U brainoid -d brainoid"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  db-data:

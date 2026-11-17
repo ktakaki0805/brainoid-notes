@@ -1,0 +1,36 @@
+{
+  "name": "brainoid-notes",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel --if-present dev",
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm tickets:check && pnpm theme:check",
+    "db:up": "docker compose up -d --wait db",
+    "db:down": "docker compose down",
+    "db:generate": "pnpm --filter @brainoid/db generate",
+    "db:migrate": "pnpm --filter @brainoid/db migrate",
+    "tickets": "node scripts/tickets.mjs list",
+    "tickets:next": "node scripts/tickets.mjs next",
+    "tickets:check": "node scripts/tickets.mjs check",
+    "astryx": "pnpm --filter @brainoid/web exec astryx",
+    "theme:build": "pnpm --filter @brainoid/web theme:build",
+    "theme:check": "pnpm --filter @brainoid/web theme:check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.7",
+    "@types/node": "^22.19.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

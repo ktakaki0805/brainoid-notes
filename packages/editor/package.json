@@ -1,0 +1,23 @@
+{
+  "name": "@brainoid/editor",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@brainoid/core": "workspace:*",
+    "@lexical/headless": "0.53.0",
+    "@lexical/link": "0.53.0",
+    "@lexical/list": "0.53.0",
+    "@lexical/markdown": "0.53.0",
+    "@lexical/rich-text": "0.53.0",
+    "@lexical/yjs": "0.53.0",
+    "lexical": "0.53.0",
+    "yjs": "^13.6.33"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@brainoid/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@brainoid/core": "workspace:*",
+    "@brainoid/db": "workspace:*",
+    "@brainoid/editor": "workspace:*",
+    "@hono/node-server": "^2.1.6",
+    "hono": "^4.13.18"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}

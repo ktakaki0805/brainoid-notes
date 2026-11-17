@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install)",
+      "Bash(pnpm check)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm format)",
+      "Bash(pnpm typecheck)",
+      "Bash(pnpm test)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm build)",
+      "Bash(pnpm tickets)",
+      "Bash(pnpm tickets *)",
+      "Bash(pnpm tickets:next)",
+      "Bash(pnpm tickets:check)",
+      "Bash(pnpm astryx *)",
+      "Bash(pnpm exec astryx *)",
+      "Bash(pnpm theme:build)",
+      "Bash(pnpm theme:check)",
+      "Bash(npx -y modern-web-guidance@latest *)",
+      "Bash(pnpx modern-web-guidance@latest *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git fetch *)",
+      "Bash(git branch *)"
+    ],
+    "deny": ["Read(./.env)", "Read(./.env.local)"]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/mise-env.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "googlechrome": {
+      "source": {
+        "source": "github",
+        "repo": "GoogleChrome/modern-web-guidance"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "modern-web-guidance@googlechrome": true
+  }
+}

@@ -1,0 +1,21 @@
+# 開発環境の定義。道具の版、環境変数、最初のセットアップをここにまとめる。
+# 使い方は docs/dev/setup.md。日々のコマンドは pnpm のまま（pnpm dev、pnpm check など）。
+
+[tools]
+# 版は完全に固定する。上げるときは、ここを書き換えて `mise install`。
+node = "22.23.4"
+# package.json の "packageManager" と同じ版にする。上げるときは両方を直す。
+pnpm = "12.18.0"
+
+[env]
+# 手元の設定（.env）を読み込む。.env はコミットしない。なければ何も読み込まない。
+# アプリの中では .env を読まない。miseが環境変数にして渡す。
+_.file = ".env"
+
+[tasks.setup]
+description = "最初の1回：依存を入れ、.env を作り、Postgresを起動する"
+run = [
+  "pnpm install",
+  "test -f .env || cp .env.example .env",
+  "pnpm db:up",
+]
